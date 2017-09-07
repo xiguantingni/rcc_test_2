@@ -4,3 +4,15 @@
 444444444444
 55555555555555555
 66666666666666
+
+
+
+var _suffix = window.location.search ? window.location.search+"&" : "?";
+  tab_pane.load(_suffix + "tab=" + tab_id.replace('#', ''), function() {
+    var xhr = arguments[2];
+    if(xhr.status === 401 || xhr.status === 403){
+      location.reload();
+    }else{
+      horizon.tabs.initTabLoad(tab_pane);
+    }
+  });
